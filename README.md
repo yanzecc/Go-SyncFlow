@@ -64,11 +64,19 @@ systemctl status go-syncflow  # 查看服务状态
 journalctl -u go-syncflow -f  # 查看日志
 ```
 
+## 后续计划
+- 单点登录，支持CAS / SAML2.0 / OAuth2 / OIDC 接入方式
+- 网络准入，支持Portal/radius/802.1X
+- 物联网接入协议，内置MQTT服务，MQTT-Broker客户端，TCP服务和SNMP服务端
+- 架构升级，使用MYSQL
+
+- 
 ## 说明
 
 - LDAP 服务默认启用 Samba 属性支持，可直接对接群晖 NAS
 - 通知渠道、同步连接器等需在管理界面中配置
 - 数据库初始为空，首次启动自动初始化
+
 
 ## 协议
 
