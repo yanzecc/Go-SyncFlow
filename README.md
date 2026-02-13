@@ -48,8 +48,8 @@ chmod +x scripts/*.sh
 
 ## 访问地址
 
-- HTTP: `http://服务器IP:8080`
-- HTTPS: `https://服务器IP:8443`
+- HTTP: `http://服务器IP:8080`（首次登录）
+- HTTPS: `https://服务器IP:8443`（管理后台上传NGINX证书后可用）
 
 ## 默认账号
 
