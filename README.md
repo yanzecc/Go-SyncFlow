@@ -3,6 +3,8 @@
 
 基于 Go + Vue3 的企业级统一身份同步与管理平台，支持多上游（IM平台/LDAP/数据库）同步至本地用户，再下游同步至 LDAP/AD/数据库。
 
+- 如有问题，请提交issue，不定期回复消息（杭州板砖ing，天天修机器！）
+
 ## 功能特性
 
 - **上游同步**：支持钉钉、企业微信、飞书、WeLink 等 IM 平台，LDAP/AD，多种数据库（MySQL/PostgreSQL/SQL Server/Oracle/SQLite）
@@ -77,7 +79,6 @@ journalctl -u go-syncflow -f  # 查看日志
 - LDAP 服务默认启用 Samba 属性支持，可直接对接群晖 NAS
 - 通知渠道、同步连接器等需在管理界面中配置
 - 数据库初始为空，首次启动自动初始化
-
 
 ## 协议
 
