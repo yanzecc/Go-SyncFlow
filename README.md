@@ -69,3 +69,7 @@ journalctl -u go-syncflow -f  # 查看日志
 - LDAP 服务默认启用 Samba 属性支持，可直接对接群晖 NAS
 - 通知渠道、同步连接器等需在管理界面中配置
 - 数据库初始为空，首次启动自动初始化
+
+## 协议
+
+本项目采用 [Apache-2.0](LICENSE) 协议开源。
