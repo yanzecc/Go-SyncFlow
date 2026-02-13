@@ -1,0 +1,173 @@
+\documentclass[11pt,a4paper]{article}
+
+% === 中文支持 ===
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont={Noto Sans CJK SC Bold}]{Noto Sans CJK SC}
+\setCJKsansfont[BoldFont={Noto Sans CJK SC Bold}]{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\setmainfont[BoldFont={Noto Sans CJK SC Bold}]{Noto Sans CJK SC}
+\setsansfont[BoldFont={Noto Sans CJK SC Bold}]{Noto Sans CJK SC}
+\setmonofont{Noto Sans Mono CJK SC}
+
+% === 页面布局 ===
+\usepackage[top=2.8cm,bottom=2.5cm,left=2.4cm,right=2.4cm,headheight=14pt]{geometry}
+
+% === 颜色定义 ===
+\usepackage{xcolor}
+\definecolor{primary}{HTML}{1D4ED8}
+\definecolor{primaryLight}{HTML}{3B82F6}
+\definecolor{secondary}{HTML}{64748B}
+\definecolor{accent}{HTML}{0891B2}
+\definecolor{darktext}{HTML}{0F172A}
+\definecolor{bodytext}{HTML}{1E293B}
+\definecolor{lighttext}{HTML}{64748B}
+\definecolor{lightbg}{HTML}{F1F5F9}
+\definecolor{codebg}{HTML}{F8FAFC}
+\definecolor{codeborder}{HTML}{E2E8F0}
+\definecolor{quoteborder}{HTML}{3B82F6}
+\definecolor{quotebg}{HTML}{EFF6FF}
+
+% === 超链接 ===
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=primary,urlcolor=accent,bookmarksnumbered=true,bookmarksopen=true,bookmarksdepth=3}
+
+% === 标题样式 ===
+\usepackage{titlesec}
+\titleformat{\section}{\color{primary}\LARGE\bfseries}{\color{primaryLight}\thesection}{0.6em}{}[\vspace{0.3em}{\color{primaryLight}\titlerule[2pt]}]
+\titleformat{\subsection}{\color{darktext}\Large\bfseries}{\color{primary}\thesubsection}{0.5em}{}[\vspace{0.1em}{\color{codeborder}\titlerule[0.5pt]}]
+\titleformat{\subsubsection}{\color{bodytext}\large\bfseries}{\color{secondary}\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{2.5em}{1.2em}
+\titlespacing*{\subsection}{0pt}{1.8em}{0.8em}
+\titlespacing*{\subsubsection}{0pt}{1.2em}{0.5em}
+
+% === 表格支持（pandoc 必需） ===
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{footnote}
+\makesavenoteenv{longtable}
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{10pt}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\rowcolors{2}{lightbg}{white}\arrayrulecolor{codeborder}}
+
+% === 代码高亮 ===
+\usepackage{fancyvrb}
+\usepackage{framed}
+\definecolor{shadecolor}{HTML}{F8FAFC}
+
+% pandoc 高亮宏
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% 覆盖 Shaded 环境
+\makeatletter
+\@ifundefined{Shaded}{%
+  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+}{%
+  \renewenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+}
+\makeatother
+
+% === 页眉页脚 ===
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{secondary}\textbf{$title$}}
+\fancyhead[R]{\small\color{lighttext}Go-SyncFlow | v3.0}
+\fancyfoot[C]{\small\color{secondary}— \thepage\ —}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{codeborder}\leaders\hrule height \headrulewidth\hfill}}
+
+% === 段落间距 ===
+\usepackage{parskip}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+\color{bodytext}
+\linespread{1.3}
+
+% === 引用块 ===
+\usepackage[framemethod=tikz]{mdframed}
+\renewenvironment{quote}{\begin{mdframed}[linewidth=3pt,linecolor=quoteborder,backgroundcolor=quotebg,innerleftmargin=14pt,innerrightmargin=14pt,innertopmargin=10pt,innerbottommargin=10pt,skipabove=1.2em,skipbelow=1.2em,roundcorner=3pt]\small\color{bodytext}}{\end{mdframed}}
+
+% === 列表样式 ===
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.8em,itemsep=0.3em,topsep=0.5em}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=0.3em,topsep=0.5em}
+\renewcommand{\labelitemi}{\color{primary}\textbullet}
+\renewcommand{\labelitemii}{\color{secondary}\textendash}
+
+% === 目录样式 ===
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\bfseries\color{primary}}
+\renewcommand{\cftsecpagefont}{\bfseries\color{primary}}
+\renewcommand{\cftsubsecfont}{\color{darktext}}
+\renewcommand{\cftsubsecpagefont}{\color{darktext}}
+\renewcommand{\cftsubsubsecfont}{\color{secondary}}
+\renewcommand{\cftsubsubsecpagefont}{\color{secondary}}
+\setlength{\cftbeforesecskip}{0.6em}
+\setlength{\cftbeforesubsecskip}{0.2em}
+\renewcommand{\cftdotsep}{2}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cftsecleader}{\color{codeborder}\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsubsecleader}{\color{codeborder}\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\color{codeborder}\cftdotfill{\cftdotsep}}
+
+% === pandoc 必需宏 ===
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% 图片支持
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% === 文档开始 ===
+\begin{document}
+
+% === 封面 ===
+\begin{titlepage}
+\begin{center}
+\vspace*{3cm}
+{\color{primaryLight}\rule{\textwidth}{3pt}}
+\vspace{2cm}
+{\fontsize{30}{36}\selectfont\bfseries\color{darktext} $title$}
+\vspace{1cm}
+{\Large\color{secondary} Go-SyncFlow 统一身份同步与管理平台}
+\vspace{0.5cm}
+{\large\color{lighttext} Unified Identity Sync \& Management Platform}
+\vspace{3cm}
+\begin{tabular}{>{\color{secondary}\bfseries}r @{\hspace{1em}} >{\color{bodytext}}l}
+文档版本 & v3.0 \\[0.5em]
+更新日期 & 2026-02-09 \\[0.5em]
+文档状态 & 正式发布 \\
+\end{tabular}
+\vspace{1.5cm}
+{\color{primaryLight}\rule{\textwidth}{3pt}}
+\vfill
+{\small\color{lighttext} 本文档为系统自动生成，内容随版本迭代持续更新}
+\vspace{1cm}
+\end{center}
+\end{titlepage}
+
+% === 目录 ===
+\newpage
+{\hypersetup{linkcolor=primary}\color{darktext}
+{\LARGE\bfseries\color{primary} 目\hspace{1em}录}
+\vspace{1em}
+{\color{primaryLight}\rule{\textwidth}{1.5pt}}
+\vspace{0.5em}
+\tableofcontents}
+\newpage
+
+% === 正文 ===
+$body$
+
+\end{document}
