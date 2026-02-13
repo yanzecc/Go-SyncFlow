@@ -71,7 +71,7 @@ journalctl -u go-syncflow -f  # 查看日志
 - 网络准入，支持Portal/radius/802.1X
 - 物联网接入协议，内置MQTT服务，MQTT-Broker客户端，TCP服务和SNMP服务端
 - 架构升级，使用MYSQL
-- 
+- 登录认证支持双因素，OTP或SMS，OTP嵌入个人中心页面（员工钉钉免登打开后即可查看OTP验证码）
 ## 说明
 
 - LDAP 服务默认启用 Samba 属性支持，可直接对接群晖 NAS
