@@ -81,8 +81,8 @@ journalctl -u go-syncflow -f  # 查看日志
 ```
 
 ## 后续计划
-- 单点登录，支持CAS / SAML2.0 / OAuth2 / OIDC 接入方式
-- 网络准入，支持Portal/radius/802.1X
+- 单点登录服务，支持第三方客户端接入，支持CAS / SAML2.0 / OAuth2 / OIDC 接入方式
+- 网络准入，支持Portal/radius/802.1X接入方式，平台内进行radius计费和授权
 - 物联网接入协议，内置MQTT服务，MQTT-Broker客户端，TCP服务和SNMP服务端
 - 架构升级，使用MYSQL
 - 登录认证支持双因素，OTP或SMS，OTP嵌入个人中心页面（员工钉钉免登打开后即可查看OTP验证码）
