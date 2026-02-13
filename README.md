@@ -41,7 +41,7 @@ cd /opt/Go-SyncFlow
 chmod +x scripts/*.sh
 ./scripts/start.sh
 ```
-登录系统后，请先检查角色配置（当角色授权列表为空，默认登录页为个人中心修改密码页），HTTPS证书和传输加密
+登录后，先检查角色配置（当角色授权列表为空，登录页为个人修改密码页），HTTPS证书和传输加密
 
 ## 访问地址
 
@@ -70,7 +70,6 @@ journalctl -u go-syncflow -f  # 查看日志
 - 网络准入，支持Portal/radius/802.1X
 - 物联网接入协议，内置MQTT服务，MQTT-Broker客户端，TCP服务和SNMP服务端
 - 架构升级，使用MYSQL
-
 - 
 ## 说明
 
